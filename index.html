@@ -62,19 +62,29 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-class绑定和style绑定" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-class &amp;&amp; style" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/25/class绑定和style绑定/" class="article-date">
-  <time datetime="2018-07-25T01:13:16.241Z" itemprop="datePublished">2018-07-25</time>
+    <a href="/2018/07/22/class && style/" class="article-date">
+  <time datetime="2018-07-22T06:57:56.000Z" itemprop="datePublished">2018-07-22</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/22/class && style/">class绑定和style绑定</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##1、class绑定和style绑定<br>html代码准备：</p>
+        <p>###html代码准备：</p>
 <pre><code>&lt;div id=&quot;app&quot;&gt;
   &lt;h1&gt;class绑定&lt;/h1&gt;
   &lt;p :class=&quot;a&quot;&gt;爸爸是class绑定：字符串绑定&lt;/p&gt;
@@ -87,30 +97,30 @@
 
   &lt;button @click=&quot;update&quot;&gt;更新&lt;/button&gt;
 &lt;/div&gt;
+
 &lt;script type=&quot;text/javascript&quot; src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
 </code></pre><p>###class绑定</p>
-<blockquote>
 <p>class=’xxx’</p>
-<blockquote>
-</blockquote>
 <ul>
 <li>1、xxx可以是字符串，可以是数组，可以是对象</li>
 <li>2、字符串和对象常用，数组不常用</li>
 </ul>
-</blockquote>
 <p>###style绑定</p>
-<blockquote>
 <p>style绑定</p>
-<blockquote>
-</blockquote>
 <ul>
 <li>:style=”对象{属性名：变量名，属性名：变量名}”，例如：</li>
 <li>:style=”{color: ChangeColor,fontSize}”</li>
 </ul>
-</blockquote>
-<p>###代码实现<br>        <script type="text/javascript"><br>          /<em>class=’xxx’<br>          1、xxx可以是字符串，可以是数组，可以是对象<br>          2、字符串和对象常用，数组不常用
-          </em>/<br>          /*style绑定<br>           :style=”对象{属性名：变量名，属性名：变量名}”，例如：<br>           :style=”{color: ChangeColor,fontSize}”</p>
-<pre><code>  * */
+<p>###代码实现</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+  /*class=&apos;xxx&apos;
+  1、xxx可以是字符串，可以是数组，可以是对象
+  2、字符串和对象常用，数组不常用
+  */
+  /*style绑定
+   :style=&quot;对象{属性名：变量名，属性名：变量名}&quot;，例如：
+   :style=&quot;{color: ChangeColor,fontSize}&quot;
+  * */
 let vm = new Vue({
   el:&apos;#app&apos;,
   data:{
@@ -144,25 +154,47 @@ let vm = new Vue({
 &lt;/script&gt;
 </code></pre><p>##2、条件渲染</p>
 <p>###v-if/v-else和 v-show的区别：</p>
-<ul>
-<li>1、使用v-if/v-else的元素，在页面中渲染的时候只出现一个。<br>它的渲染方式相当于在true时候添加这个元素，false时将这个元素从代码块中删除。</li>
-<li><p>2、v-show在页面中显示的时候元素全部出现，<br>只不过是通过控制元素属性的display：none和display:block来判断元素在在浏览器界面中是否显示的<br>###代码演示<br><body><br><div id="app"></p>
-  <p v-if="ok">成功</p><br>  <p v-else>失败</p>
+<p>1、使用v-if/v-else的元素，在页面中渲染的时候只出现一个。<br>  它的渲染方式相当于在true时候添加这个元素，false时将这个元素从代码块中删除。</p>
+<p>2、v-show在页面中显示的时候元素全部出现，<br>  只不过是通过控制元素属性的display：none和display:block来判断元素在在浏览器界面中是否显示的</p>
+<p>###代码演示</p>
+<pre><code>&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;p v-if=&quot;ok&quot;&gt;成功&lt;/p&gt;
+  &lt;p v-else&gt;失败&lt;/p&gt;
 
-<p>  <p v-show="ok">ok</p><br>  <p v-show="!ok">bu ok</p><br>  <button @click="ok=!ok">切换</button><br></div><br><script type="text/javascript" src="js/vue.js"></script></p>
-<script type="text/javascript">
+  &lt;p v-show=&quot;ok&quot;&gt;ok&lt;/p&gt;
+  &lt;p v-show=&quot;!ok&quot;&gt;bu ok&lt;/p&gt;
+  &lt;button @click=&quot;ok=!ok&quot;&gt;切换&lt;/button&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+let vm = new Vue({
+  el:&apos;#app&apos;,
+  data:{
+   ok:true
+  }
+})
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre><p> v-if/v-else和 v-show的区别：</p>
+<p>  1、使用v-if/v-else的元素，在页面中渲染的时候只出现一个。<br>  它的渲染方式相当于在true时候添加这个元素，false时将这个元素从代码块中删除。</p>
+<p>  2、v-show在页面中显示的时候元素全部出现，<br>  只不过是通过控制元素属性的display：none和display:block来判断元素在在浏览器界面中是否显示的</p>
+<p>##3、列表渲染</p>
+<p>html代码准备：</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;h1&gt;v-for遍历数组&lt;/h1&gt;
+  &lt;ul&gt;
+     &lt;!--v-for=&quot;参数(定义的数组，下标) in 数组名字&quot;--&gt;
+    &lt;!--v-for使用的时候最好配合key--&gt;
+    &lt;li v-for=&quot;(p,index) in persons&quot; :key=&quot;index&quot;&gt;
+    {{index}}---{{p.name}}---{{p.age}}
+      ---&lt;button @click=&quot;deleteP(index)&quot;&gt;删除&lt;/button&gt;---
+      ---&lt;button @click=&quot;update(index,{name:&apos;BigCat&apos;,age:5})&quot;&gt;更新&lt;/button&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
 
-<p>  /*  v-if/v-else和 v-show的区别：<br>  1、使用v-if/v-else的元素，在页面中渲染的时候只出现一个。<br>  它的渲染方式相当于在true时候添加这个元素，false时将这个元素从代码块中删除。<br>  2、v-show在页面中显示的时候元素全部出现，<br>  只不过是通过控制元素属性的display：none和display:block来判断元素在在浏览器界面中是否显示的</p>
-<ul>
-<li>*/<br>let vm = new Vue({<br>el:’#app’,<br>data:{<br>ok:true<br>}<br>})<br></script><br><br>##3、列表渲染<br>html代码准备：
 
-<p><div id="app"><br>  <h1>v-for遍历数组</h1></div></p>
-  <ul><br>     <!--v-for="参数(定义的数组，下标) in 数组名字"--><br>    <!--v-for使用的时候最好配合key--><br>    <li v-for="(p,index) in persons" :key="index"><br>    ——<br>      —<button @click="deleteP(index)">删除</button>—<br>      —<button @click="update(index,{name:'BigCat',age:5})">更新</button><br>    </li><br>  </ul>
-
-
-
-
-<pre><code>  &lt;h1&gt;v-for遍历对象&lt;/h1&gt;
+  &lt;h1&gt;v-for遍历对象&lt;/h1&gt;
   &lt;ul&gt;
     &lt;!--v-for=&quot;(属性值,属性名) in 对象名&quot;--&gt;
     &lt;li v-for=&quot;(value,key) in persons[0]&quot;&gt;
@@ -173,51 +205,47 @@ let vm = new Vue({
 </code></pre><p>###v-for</p>
 <ul>
 <li>遍历数组：v-for=”参数(定义的数组，下标) in 数组名字<ul>
-<li>v-for=”(p,index) in persons”</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 遍历对象：v-for=&quot;(属性值,属性名) in 对象名</span><br><span class="line">	* ```v-for=&quot;(value,key) in persons[0]</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
-<li><p>遍历对象：v-for=”(属性值,属性名) in 对象名</p>
-<ul>
-<li><p>v-for=”(value,key) in persons[0]<br>###JS代码演示</p>
-<script type="text/javascript" src="js/vue.js"></script>
-<script type="text/javascript">
+</ul>
+<p>###JS代码演示</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
 let vm = new Vue({
-el:'#app',
-data:{
-  persons:[
-    {name:'cat',age:1},
-    {name:'dog',age:2},
-    {name:'big',age:3},
-    {name:'cow',age:4}
-  ]
-},
-methods:{
+  el:&apos;#app&apos;,
+  data:{
+    persons:[
+      {name:&apos;cat&apos;,age:1},
+      {name:&apos;dog&apos;,age:2},
+      {name:&apos;big&apos;,age:3},
+      {name:&apos;cow&apos;,age:4}
+    ]
+  },
+  methods:{
 //    定义删除方法，注意不能使用关键字delete
 //    注意vue中数组中的方法是经过处理的，所以跟原始的方法不一样
-  deleteP (index){
+    deleteP (index){
 //      删除：数组splice(删除项目的位置，删除的数量)
-    this.persons.splice(index,1);
-  },
+      this.persons.splice(index,1);
+    },
 
 //    定义更新数据的方法，
 // 在上面的html代码中我们更新后的数据使用的是一个定值，
 // 你也可以设置成一个变量的值，或者对象
-  update(index,newA){
+    update(index,newA){
 //     替换： 数组splice(删除项目的位置，替换的数量,替换的值)
-    this.persons.splice(index,1,newA);
+      this.persons.splice(index,1,newA);
+    }
   }
-}
 })
-</script>
-</li>
-</ul>
-</li>
-</ul>
-
+&lt;/script&gt;
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/25/class绑定和style绑定/" data-id="cjk0fxyrq000034v8dhmsy5xr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/22/class && style/" data-id="cjknwrwy60000wsv85zfe9j3c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -254,7 +282,7 @@ methods:{
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/lemon/" data-id="cjk0fxys0000134v8h919gqzq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/22/lemon/" data-id="cjknwrwyj0001wsv8z3tidozh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -291,7 +319,7 @@ methods:{
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/my-first-blog/" data-id="cjk0fxys8000334v883ylf6x4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/22/my-first-blog/" data-id="cjknwrwyo0002wsv8haxfmqym" class="article-share-link">Share</a>
       
       
     </footer>
@@ -336,7 +364,7 @@ methods:{
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/22/hello-world/" data-id="cjk0fxys5000234v8djm2ik64" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/22/hello-world/" data-id="cjknwrwzh0003wsv8qjakbnz9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -377,7 +405,7 @@ methods:{
       <ul>
         
           <li>
-            <a href="/2018/07/25/class绑定和style绑定/">(no title)</a>
+            <a href="/2018/07/22/class && style/">class绑定和style绑定</a>
           </li>
         
           <li>
